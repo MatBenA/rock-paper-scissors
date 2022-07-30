@@ -91,7 +91,7 @@ function playRound(playerSelection, computerSelection) {
                     break;
 
                 case "PAPER":
-                    return "You lose :c Paper beats Rock";
+                    return "You Lose :c Paper beats Rock";
                     break;
 
                 case "SCISSORS":
@@ -111,7 +111,7 @@ function playRound(playerSelection, computerSelection) {
                     break;
 
                 case "SCISSORS":
-                    return "You lose :c Scissors beats Paper";
+                    return "You Lose :c Scissors beats Paper";
                     break;
             }
             break;
@@ -119,7 +119,7 @@ function playRound(playerSelection, computerSelection) {
         case "SCISSORS":
             switch (computerSelection) {
                 case "ROCK":
-                    return "You lose :c Rock beats Scissors";
+                    return "You Lose :c Rock beats Scissors";
                     break;
 
                 case "PAPER":
@@ -133,17 +133,50 @@ function playRound(playerSelection, computerSelection) {
             break;
 
         default:
-            return "ERROR";
+            return "ERROR: you can only enter the words Rock, Paper or Scissors";
     }
 }
 
 //plays 5 rounds and decides a winner, returns the result in the console
 function game() {
+    let playerPoints = 0;
+    let computerPoints = 0;
+    let winner;
+
+    //5 round loop
     for (let i = 0; i < 5; i++) {
 
         //uses a prompt to input players selection
         let playerSelection = prompt("Chose: Rock - Paper - Scissors:");
         let result = playRound(playerSelection, getComputerChoice());
         console.log(result);
+        
+
+        //determines if you have won or lost depending on the result message
+        winner = result.charAt(4)
+
+        switch (winner) {
+            case "W":
+                playerPoints++;
+                break;
+            case "L":
+                computerPoints++;
+                break;
+        }
     }
+
+    //final message after the 5 round match
+    if(playerPoints > computerPoints){
+        console.log("Congratulations! YOU WIN!!");
+    }
+    else if (playerPoints < computerPoints){
+        console.log("you lose, better luck next time");
+    }
+    else{
+        console.log("ITS A DRAW")
+    }
+
+    //displays scores
+    console.log("scores:");
+    console.log("you: "+playerPoints+"  computer: "+computerPoints);
 }
