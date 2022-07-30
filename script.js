@@ -1,8 +1,4 @@
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-
+game();
 /*
 a function called getComputerChoice that will randomly return
 either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function
@@ -136,11 +132,18 @@ function playRound(playerSelection, computerSelection) {
             }
             break;
 
+        default:
+            return "ERROR";
     }
 }
 
+//plays 5 rounds and decides a winner, returns the result in the console
 function game() {
     for (let i = 0; i < 5; i++) {
-        playRound()
+
+        //uses a prompt to input players selection
+        let playerSelection = prompt("Chose: Rock - Paper - Scissors:");
+        let result = playRound(playerSelection, getComputerChoice());
+        console.log(result);
     }
 }
