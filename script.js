@@ -46,31 +46,6 @@ function getComputerChoice() {
     return result;
 }
 
-
-/*
-Function that plays one round playRound()
-
-    play the game 
-    case playerchoice
-    if player choose rock
-        computer choose rock >> Draw
-        computer choose paper >> Loose
-        computer choose scissors >> Win
-
-    if player choose paper
-        computer choose paper >> Draw
-        computer choose scissors >> Loose
-        computer choose rock >> Win
-
-    if player choose scissors
-        computer choose scissors >> Draw
-        computer choose rock >> Loose
-        computer choose paper >> Win
-
-    return a string with "you win" or "you lose" text
-*/
-
-
 //this function plays one round
 function playRound(playerSelection, computerSelection) {
 
