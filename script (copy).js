@@ -1,4 +1,4 @@
-
+game();
 /*
 a function called getComputerChoice that will randomly return
 either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function
@@ -45,8 +45,6 @@ function getComputerChoice() {
 
     return result;
 }
-
-
 
 //this function plays one round
 function playRound(playerSelection, computerSelection) {
@@ -114,14 +112,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const rockButton = document.querySelector(".rock-btn");
-rockButton.addEventListener("click", () => {
-    const ComputerChoice = getComputerChoice();
-    console.log(playRound("rock", ComputerChoice));
-});
-
 //plays 5 rounds and decides a winner, returns the result in the console
-/* function game() {
+function game() {
     let playerPoints = 0;
     let computerPoints = 0;
     let winner;
@@ -163,5 +155,3 @@ rockButton.addEventListener("click", () => {
     console.log("scores:");
     console.log("you: "+playerPoints+"  computer: "+computerPoints);
 }
-
-game();*/
