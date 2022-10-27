@@ -119,6 +119,8 @@ function playAndLog(playerSelection){
 	const ComputerChoice = getComputerChoice();
 	roundResult = playRound(playerSelection, ComputerChoice);
 	console.log(roundResult);
+
+	
 }
 
 //event listener added to the three options
@@ -130,3 +132,5 @@ paperButton.addEventListener("click", () => playAndLog("PAPER"));
 
 const scissorsButton = document.querySelector(".scissors-btn");
 scissorsButton.addEventListener("click", () => playAndLog("SCISSORS"));
+
+const resultBox = document.querySelector("#result-box");
