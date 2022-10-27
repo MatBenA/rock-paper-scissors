@@ -114,14 +114,20 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const rockButton = document.querySelector(".rock-btn");
-rockButton.addEventListener("click", () => {
+function playAndLog(){
     const ComputerChoice = getComputerChoice();
-    console.log(playRound("rock", ComputerChoice));
-});
+    roundResult = playRound("rock", ComputerChoice)
+    console.log(roundResult);
+}
 
-//plays 5 rounds and decides a winner, returns the result in the console
-/* function game() {
+const rockButton = document.querySelector(".rock-btn");
+rockButton.addEventListener("click", playAndLog);
+
+const paperButton = document.querySelector(".paper-btn");
+paperButton.addEventListener("click", playAndLog);
+
+const scissorsButton = document.querySelector(".scissors-btn");
+scissorsButton.addEventListener("click", playAndLog);
     let playerPoints = 0;
     let computerPoints = 0;
     let winner;
