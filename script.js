@@ -114,13 +114,13 @@ function playRound(playerSelection, computerSelection) {
 	}
 }
 
-// plays a round when the user clicks an option and logs the result
+// plays a round when the user clicks an option and puts the result into a div
 function playAndLog(playerSelection){
 	const ComputerChoice = getComputerChoice();
 	roundResult = playRound(playerSelection, ComputerChoice);
-	console.log(roundResult);
 
-	
+	//puts the result into a div
+	resultBox.textContent = roundResult
 }
 
 //event listener added to the three options
@@ -133,4 +133,6 @@ paperButton.addEventListener("click", () => playAndLog("PAPER"));
 const scissorsButton = document.querySelector(".scissors-btn");
 scissorsButton.addEventListener("click", () => playAndLog("SCISSORS"));
 
+//This div is for the results
 const resultBox = document.querySelector("#result-box");
+
