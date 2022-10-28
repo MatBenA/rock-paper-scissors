@@ -120,8 +120,50 @@ function playAndLog(playerSelection){
 	roundResult = playRound(playerSelection, ComputerChoice);
 
 	//puts the result into a div
-	resultBox.textContent = roundResult
+	resultBox.textContent = roundResult;
+
+
+	//Counts whether the user or the computer wins
+	if (roundResult.charAt(4) === 'W'){
+		++userWins;
+	}
+	else if (roundResult.charAt(4) === 'L'){
+		++computerWins;
+	}
+
+	//diplsays each ones score
+	usrScore.textContent = `You ${userWins}`;
+	cptrScore.textContent = `Computer ${computerWins}`;
+
+	//Displays a win message after you score five points and resets the counters
+	if (userWins === 5){
+		body.appendChild(winner);
+		winner.textContent = "CONGRATULATIONS YOU WIN!!";
+		computerWins = 0;
+		userWins = 0;
+	}
+
+	//Displays a lose message after the computer scores five points and resets the counters
+	else if (computerWins === 5){
+		body.appendChild(winner);
+		winner.textContent = "Better luck next time, computer wins";
+		computerWins = 0;
+		userWins = 0;
+	}
+
+	//removes the winner or loser message when you start a new match
+	else if(body.contains(winner)){
+		body.removeChild(winner);
+	}
 }
+
+
+//counter of scores
+let computerWins = 0;
+let userWins = 0;
+
+const body = document.querySelector("body");	//selects the body
+const winner = document.createElement('div');	//creates a div to display winner or loser message
 
 //event listener added to the three options
 const rockButton = document.querySelector(".rock-btn");
@@ -133,6 +175,9 @@ paperButton.addEventListener("click", () => playAndLog("PAPER"));
 const scissorsButton = document.querySelector(".scissors-btn");
 scissorsButton.addEventListener("click", () => playAndLog("SCISSORS"));
 
-//This div is for the results
+//This div is for the result message
 const resultBox = document.querySelector("#result-box");
 
+//Divs that display the scores
+const usrScore = document.querySelector(".usr-score");
+const cptrScore = document.querySelector(".cptr-score");
